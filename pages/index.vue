@@ -1,66 +1,65 @@
 <script setup lang='ts'>
-import AdvertiseBox from '@/components/AdvertiseBox.vue'
+const result = ref('')
+const reset = () => {
+  result.value = ''
+}
+const numbers = ref([
+    1,2,3,4,5,6,7,8,9,0,"00"
+])
+const operations = ref([
+  "/","*","-","+",
+])
+const input = (char: any) => {
+  result.value += char
+}
+const deleted = () =>{
+  result.value =result.value.slice(0,-1)
+}
+const calc = () => {
+result.value = eval(result.value)
+}
+
 </script>
 
 <template>
-  <div class="surface-0 text-center">
-    <div class="mb-3 font-bold text-4xl">
-      <span class="text-green-600">PrimeVue </span>
-      <span class="text-blue-400"> & TypeScript</span>
-      <span class="text-green-400"> & Nuxt 3</span>
-    </div>
-    <h2 class="text-2xl pb-6">
-      Starter for Vue.js Development with Nuxt 3.
-    </h2>
-    <div class="grid grid-cols-2 lg:grid-cols-3 gap-2">
-      <AdvertiseBox header="PrimeVue 3.29" icon="prime-check-circle" color="green-600">
-        Excellent Component Library for VUE
-      </AdvertiseBox>
-      <AdvertiseBox header="PrimeVue Theme & Layout" icon="prime-check-circle" color="green-600">
-        Free Sakai theme
-      </AdvertiseBox>
-      <AdvertiseBox header="UnoCSS" icon="prime-check-circle" color="green-600">
-        UnoCSS for rapid styling
-      </AdvertiseBox>
-      <AdvertiseBox header="VUE 3.3" icon="prime-check-circle" color="green-600">
-        Composition Api
-      </AdvertiseBox>
-      <AdvertiseBox header="Script Setup" icon="prime-check-circle" color="green-600">
-        Reduce a lot of boilerplate code
-      </AdvertiseBox>
-      <AdvertiseBox header="Typescript 5" icon="prime-check-circle" color="blue-400">
-        Typesafe by default
-      </AdvertiseBox>
+  <div class="container">
+    <div class="w-[300px] h-full bg-gray-400 m-auto p-5 mt-8 border-round-md">
+      <div class="bg-white border-round-md">
+        <input
+            class="w-full text-end text-2xl px-3 py-2 border-none border-round-md"
+            v-model.number="result"
+            placeholder="0"
+        >
+      </div>
+      <div class="grid mt-5">
+        <div class="col-9">
+          <div class="grid justify-center">
+            <div class="col-4">
+              <Button @click="reset()" class="integers">AC</Button>
+            </div>
+            <div class="col-4">
+              <Button @click="deleted" class="integers">DE</Button>
+            </div>
+            <div class="col-4">
+              <Button @click="input('.')" class="integers">.</Button>
+            </div>
+            <div v-for="num in numbers" class="col-4">
+              <Button @click="input(num)" class="integers">{{num}}</Button>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="grid">
+            <div v-for="op in operations" class="col-12">
+              <Button @click="input(op)" class="integers integers--gray hover:bg-orange-300">{{op}}</Button>
+            </div>
+            <div class="col-12">
+              <Button @click="calc()" class="integers integers--gray hover:bg-orange-300 border-round-sm text-5xl">=</Button>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <AdvertiseBox header="Nuxt 3.5" icon="prime-check-circle" color="green-400">
-        Pages, Layouts, ...
-      </AdvertiseBox>
-      <AdvertiseBox header="Nuxt Content 2.5" icon="prime-check-circle" color="green-400">
-        Markdown, YML, CSV or JSON and MDC Syntax
-      </AdvertiseBox>
-      <AdvertiseBox header="I18n" icon="prime-check-circle" color="green-600">
-        Nuxt I18n (Beta)
-      </AdvertiseBox>
-      <AdvertiseBox header="VueUse" icon="prime-check-circle" color="green-600">
-        VueUse included
-      </AdvertiseBox>
-      <AdvertiseBox header="Pinia Store 2" icon="prime-check-circle" color="blue-400">
-        Replacement / Alternative for VUEX Store
-      </AdvertiseBox>
-      <AdvertiseBox header="Nitro" icon="prime-check-circle" color="green-400">
-        Nuxt 3 Server Engine
-      </AdvertiseBox>
-      <AdvertiseBox header="TipTap" icon="prime-check-circle" color="green-600">
-        TipTap Editor Demo
-      </AdvertiseBox>
-      <AdvertiseBox header="Vitest" icon="prime-check-circle" color="blue-600">
-        Testing with Vitest
-      </AdvertiseBox>
-      <AdvertiseBox header="Histoire" icon="prime-check-circle" color="green-600">
-        Interactive Component Playgrounds
-      </AdvertiseBox>
     </div>
   </div>
 </template>
-
-<style scoped></style>
