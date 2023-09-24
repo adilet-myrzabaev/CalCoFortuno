@@ -25,12 +25,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
+          cache: 'npm'
 
       - name: Install & Generate 🔧
         run: |
-          pnpm install
-          pnpm generate
+          npm install
+          npm generate
         env:
           NUXT_APP_BASE_URL: /${{ github.event.repository.name }}/
 
