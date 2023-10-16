@@ -25,7 +25,7 @@ result.value = eval(result.value)
 
 <template>
   <div class="container">
-    <button @click="router.push('/functional/coleso_fortuna')">Coleso-Fortuna</button>
+    <button @click="router.push('/functional/coleso_fortuna')">Coleso-Fortun</button>
     <div class="w-[300px] h-full bg-gray-400 m-auto p-5 mt-8 border-round-md">
       <div class="bg-white border-round-md">
         <input
