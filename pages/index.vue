@@ -1,5 +1,6 @@
 <script setup lang='ts'>
 const result = ref('')
+const router = useRouter()
 const reset = () => {
   result.value = ''
 }
@@ -23,7 +24,7 @@ result.value = eval(result.value)
 
 <template>
   <div class="container">
-    <Button>Jnn</Button>
+    <Button @click="router.push('/functional/coleso_fortuna')">Jnn</Button>
     <div class="w-[300px] h-full bg-gray-400 m-auto p-5 mt-8 border-round-md">
       <div class="bg-white border-round-md">
         <input
