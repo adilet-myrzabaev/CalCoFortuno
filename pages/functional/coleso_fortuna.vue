@@ -1,61 +1,65 @@
 <template>
-  <div class="px-9">
-    <div class="box flex relative font-sans">
-      <div class="absolute top-[30px] left-0">
-        <h1 class="text-6xl text-[#9771ff] font-bold uppercase">biruni</h1>
-        <p class="w-4 text-xl text-justify">Вы работаете над новым веб-приложением, которое предоставит пользователям удобный способ управления своими задачами и проектами. Вашей задачей является создание интуитивного интерфейса с удобным перетаскиванием задач и автоматизированным уведомлением пользователей о важных событиях. Также вам нужно обеспечить безопасное хранение данных и высокую производительность приложения, чтобы пользователи могли получать мгновенный доступ к своим задачам. Работая в команде разработчиков, вы будете использовать современные фреймворки и инструменты для достижения этой цели.</p>
+  <div class="px-3 md:px-9">
+    <div class="box grid flex font-sans">
+      <div class="col-12 lg:col-4 mb-4">
+        <h1 class="text-6xl text-[#9771ff] font-bold uppercase text-center">biruni</h1>
+        <p class="text-xl text-justify hidden lg:flex">Вы работаете над новым веб-приложением, которое предоставит пользователям удобный способ управления своими задачами и проектами. Вашей задачей является создание интуитивного интерфейса с удобным перетаскиванием задач и автоматизированным уведомлением пользователей о важных событиях. Также вам нужно обеспечить безопасное хранение данных и высокую производительность приложения, чтобы пользователи могли получать мгновенный доступ к своим задачам. Работая в команде разработчиков, вы будете использовать современные фреймворки и инструменты для достижения этой цели.</p>
       </div>
-      <div class="flex flex-column justify-content-center align-items-center">
-        <h1>Нажмите enter</h1>
-        <div class="line">
-          <i class="pi pi-caret-down text-6xl"></i>
-        </div>
-        <div class="coleso-fortuno" :style="`transform: rotate(${randomRotateclass}deg)`">
-          <div class="partent-coleso col1"></div>
-          <div class="partent-coleso col2"></div>
-          <div class="partent-coleso col3"></div>
-          <div class="partent-coleso col4"></div>
-          <div class="partent-coleso col5"></div>
-          <div class="partent-coleso col6"></div>
-          <div class="partent-coleso col7"></div>
-        </div>
-      </div>
-      <div class="content absolute right-0 top-[30px] w-4">
-        <h1 class="text-center text-5xl text-[red] font-bold uppercase">Наказании</h1>
-        <div class="flex align-items-center mb-4">
-          <div class="w-2rem h-2rem mr-3 bg-[#2c3e50] rounded-[50%]"></div>
-          <h5 class="m-0 leading-0">10круг бега без остановок</h5>
-        </div>
-        <div class="flex align-items-center mb-4">
-          <div class="w-2rem h-2rem mr-3 bg-[violet] rounded-[50%]"></div>
-          <h5 class="m-0 leading-0">Поднять стул стоя 15мин</h5>
-        </div>
-        <div class="flex align-items-center mb-4">
-          <div class="w-2rem h-2rem mr-3 bg-[#00dc82] rounded-[50%]"></div>
-          <h5 class="m-0 leading-6">Запрет на сидение</h5>
-        </div>
-        <div class="flex align-items-center mb-4">
-          <div class="w-2rem h-2rem mr-3 bg-[gray] rounded-[50%]"></div>
-          <div class="flex flex-column">
-            <h5 class="m-0 text-sm">Носит сумки всех в течение 2 часов (мальчики)</h5>
-            <h5 class="m-0 text-sm">Носит 3 сумки в течение 2 часов (девочки)</h5>
+      <div class="col-12 lg:col-4 mb-4">
+        <div class="flex flex-column justify-content-center align-items-center">
+          <button class="btn btn-secondary bg-[#9771ff] border-none p-3" @click="changeRandom">Нажмите</button>
+          <div class="line">
+            <i class="pi pi-caret-down text-6xl"></i>
+          </div>
+          <div class="coleso-fortuno" :style="`transform: rotate(${randomRotateclass}deg)`">
+            <div class="partent-coleso col1"></div>
+            <div class="partent-coleso col2"></div>
+            <div class="partent-coleso col3"></div>
+            <div class="partent-coleso col4"></div>
+            <div class="partent-coleso col5"></div>
+            <div class="partent-coleso col6"></div>
+            <div class="partent-coleso col7"></div>
           </div>
         </div>
-        <div class="flex align-items-center mb-4">
-          <div class="w-2rem h-2rem mr-3 bg-[blue] rounded-[50%]"></div>
-          <h5 class="m-0 leading-0">Уборка бируни</h5>
-        </div>
-        <div class="flex align-items-center mb-4">
-          <div class="w-2rem h-2rem mr-3 bg-[orange] rounded-[50%]"></div>
-          <h5 class="m-0 leading-6 w-8">Мальчики отжимания (40); Девочки присидания (50)</h5>
-        </div>
-        <div class="flex align-items-center mb-4">
-          <div class="w-2rem h-2rem mr-3 bg-[pink] rounded-[50%]"></div>
-          <h5 class="m-0 leading-0">До обеда не заходит в бируни</h5>
-        </div>
-        <div class="flex align-items-center mb-4">
-          <div class="w-2rem h-2rem mr-3 bg-[red] rounded-[50%]"></div>
-          <h5 class="m-0 leading-0">Счастливый билет</h5>
+      </div>
+      <div class="col-12 lg:col-4 mb-4">
+        <div class="content">
+          <h1 class="text-center text-5xl text-[red] font-bold uppercase">Наказании</h1>
+          <div class="flex align-items-center mb-4">
+            <div class="w-2rem h-2rem mr-3 bg-[#2c3e50] rounded-[50%]"></div>
+            <h5 class="m-0 leading-0">10круг бега без остановок</h5>
+          </div>
+          <div class="flex align-items-center mb-4">
+            <div class="w-2rem h-2rem mr-3 bg-[violet] rounded-[50%]"></div>
+            <h5 class="m-0 leading-0">Поднять стул стоя 15мин</h5>
+          </div>
+          <div class="flex align-items-center mb-4">
+            <div class="w-2rem h-2rem mr-3 bg-[#00dc82] rounded-[50%]"></div>
+            <h5 class="m-0 leading-6">Запрет на сидение</h5>
+          </div>
+          <div class="flex align-items-center mb-4">
+            <div class="w-2rem h-2rem mr-3 bg-[gray] rounded-[50%]"></div>
+            <div class="flex flex-column">
+              <h5 class="m-0">Носит сумки всех в течение 2 часов (мальчики)</h5>
+              <h5 class="m-0">Носит 3 сумки в течение 2 часов (девочки)</h5>
+            </div>
+          </div>
+          <div class="flex align-items-center mb-4">
+            <div class="w-2rem h-2rem mr-3 bg-[blue] rounded-[50%]"></div>
+            <h5 class="m-0 leading-0">Уборка бируни</h5>
+          </div>
+          <div class="flex align-items-center mb-4">
+            <div class="w-2rem h-2rem mr-3 bg-[orange] rounded-[50%]"></div>
+            <h5 class="m-0 leading-6 w-8">Мальчики отжимания (40); Девочки присидания (50)</h5>
+          </div>
+          <div class="flex align-items-center mb-4">
+            <div class="w-2rem h-2rem mr-3 bg-[pink] rounded-[50%]"></div>
+            <h5 class="m-0 leading-0">До обеда не заходит в бируни</h5>
+          </div>
+          <div class="flex align-items-center mb-4">
+            <div class="w-2rem h-2rem mr-3 bg-[red] rounded-[50%]"></div>
+            <h5 class="m-0 leading-0">Счастливый билет</h5>
+          </div>
         </div>
       </div>
     </div>
@@ -66,19 +70,24 @@
 import {onMounted} from "vue";
 
 let randomRotate = 0;
-let isZTrue = false;
 const randomRotateclass = ref(0);
-
-
-onMounted(function(){
+const changeRandom = () =>  {
+  while (true){
+    randomRotate = Math.trunc(Math.random()*100000)
+    if (randomRotate>=15000 && randomRotate <=30000){
+      randomRotateclass.value = randomRotate
+      return
+    }
+  }
+}
+changeRandom()
+onMounted(() => {
   document.onkeypress = (event) => {
-    console.log(event)
 
     if(event.charCode === 13){
       while (true){
         randomRotate = Math.trunc(Math.random()*100000)
         if (randomRotate>=15000 && randomRotate <=30000){
-          console.log(randomRotate)
           randomRotateclass.value = randomRotate
           return
         }
@@ -86,7 +95,6 @@ onMounted(function(){
     }
   }
 })
-
 </script>
 
 <style scoped>
